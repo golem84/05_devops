@@ -22,4 +22,3 @@ docker image rm nginx-server > /dev/null
 echo "====== 10. check if is no image 'nginx-server' exists: ======"
 docker images -a
 echo "====== done. ======"
-
