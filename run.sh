@@ -1,29 +1,22 @@
 #!/bin/bash
-echo -e "build image... \n"
+echo "====== 1. build image... ======"
 docker build -t nginx-server ./nginx/.
-echo -e "\n"
-echo -e "run container... \n"
+echo "====== 2. images: ======"
+docker image list | grep nginx-server
+echo "====== 3. run container... ======"
 docker run -d --name nginx-server1 -p 54321:80 nginx-server
-echo -e "\n"
-echo -e "containers: \n"
+echo "====== 4. containers: ======"
 docker ps -a
-echo -e "\n"
-echo -e "fetch index.html from nginx container:"
+echo "====== 5. fetch index.html from nginx container: ======"
 curl http://localhost:54321
-echo -e "\n"
-echo -e "logs from container:\n"
+echo "====== 6. logs from container: ======"
 docker logs nginx-server1
-echo -e "\n"
-echo -e "stop and remove container:\n"
+echo "====== 7. stop and remove container: ======"
 docker stop nginx-server1 && docker rm nginx-server1
-echo -e "\n"
-echo -e "there is no containers:\n"
+echo "====== 8. there is no containers: ======"
 docker ps -a
-echo -e "\n"
-echo -e "remove image:\n"
+echo "====== 9. remove image: ======"
 docker image rm nginx-server
-echo -e "\n"
-echo -e "there is no image 'nginx-server':\n"
+echo "====== 10. there is no image 'nginx-server': ======"
 docker images -a
-echo -e "\n"
-echo "done."
+echo "====== done. ======"
