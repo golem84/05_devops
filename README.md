@@ -4,7 +4,7 @@ to build image from ./nginx:
 `docker build -t nginx-server .`  
 
 to run container from ./nginx:  
-`docker run -d --name nginx-server1 -p 8080:80 nginx-server`  
+`docker run -d --name nginx-server1 -p 54321:80 nginx-server`  
 
 attach to container and view logs from nginx:  
 `docker attach nginx-server1`  
